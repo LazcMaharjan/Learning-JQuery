@@ -1,0 +1,448 @@
+:root {
+  --container-max-width: 1200px;
+  --container-padding: 16px;
+  --row-gap: 24px;
+  --row-align: center;
+  --row-justify: space-between;
+}
+
+:root {
+  /* ========== COLOR SYSTEM ========== */
+  --color-primary: #007bff;         /* Main theme color */
+  --color-secondary: #6c757d;       /* Secondary accent */
+  --color-accent: #ffc107;          /* Highlight/accent color */
+  --color-success: #28a745;
+  --color-danger: #dc3545;
+  --color-warning: #ffc107;
+  --color-info: #17a2b8;
+  --color-light: #f8f9fa;
+  --color-dark: #212529;
+
+  /* Hover Colors */
+  --color-hover-primary: #0056b3;
+  --color-hover-secondary: #5a6268;
+  --color-hover-accent: #e0a800;
+
+  /* Text Colors */
+  --color-text-main: #212529;
+  --color-text-muted: #6c757d;
+  --color-text-inverse: #ffffff;
+  --color-bg-body: #ffffff;
+  --color-bg-section: #f4f4f4;
+
+  /* ========== TYPOGRAPHY SYSTEM ========== */
+  --font-family-primary: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  --font-family-secondary: 'Roboto', 'Open Sans', sans-serif;
+
+  /* Font Sizes */
+  --font-size-base: 1rem;           /* 16px default */
+  --font-size-small: 0.875rem;      /* 14px */
+  --font-size-large: 1.125rem;      /* 18px */
+  --font-size-h1: 2.5rem;           /* 40px */
+  --font-size-h2: 2rem;             /* 32px */
+  --font-size-h3: 1.75rem;          /* 28px */
+  --font-size-h4: 1.5rem;           /* 24px */
+  --font-size-h5: 1.25rem;          /* 20px */
+  --font-size-h6: 1.125rem;         /* 18px */
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  /* Line Heights */
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.5;
+  --line-height-loose: 1.8;
+
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.5px;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.5px;
+
+  /* ========== SPACING SYSTEM ========== */
+  --space-xxs: 0.25rem;   /* 4px */
+  --space-xs: 0.5rem;     /* 8px */
+  --space-sm: 0.75rem;    /* 12px */
+  --space-md: 1rem;       /* 16px */
+  --space-lg: 1.5rem;     /* 24px */
+  --space-xl: 2rem;       /* 32px */
+  --space-xxl: 3rem;      /* 48px */
+
+  /* Paragraph and Headings Spacing */
+  --paragraph-line-height: 1.7;
+  --paragraph-spacing: 1rem;
+  --heading-line-height: 1.3;
+  --subheading-line-height: 1.4;
+
+  /* ========== BORDERS & SHADOWS ========== */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-round: 50%;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+  /* ========== TRANSITIONS ========== */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.4s ease;
+  --transition-slow: 0.6s ease;
+}
+
+/* ========== EXAMPLES OF USAGE ========== */
+body {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-body);
+}
+
+/* Container: centers content and sets max width */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+  box-sizing: border-box;
+}
+
+/* Row: flex layout with customizable alignment */
+.row {
+  flex-wrap: wrap;
+  align-items: var(--row-align);
+  justify-content: var(--row-justify);
+  gap: var(--row-gap);
+}
+
+    /* =============================
+                Top Header 
+    ============================= */
+
+    .wrap-all-top-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--color-light);
+        padding: var(--space-sm) var(--space-lg);
+        font-family: var(--font-family-primary);
+        box-shadow: var(--shadow-sm);
+        position: relative;
+        height: 90px;
+    }
+
+    .wrap-all-nav-left {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--color-light);
+        padding: var(--space-sm) var(--space-lg);
+        font-family: var(--font-family-primary);
+        box-shadow: var(--shadow-sm);
+    }
+
+    /* Left Section */
+    .left-all-wrap-header {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+    }
+
+    .logo img {
+        width: 40px;
+        height: 40px;
+        border-radius: var(--border-radius-md);
+        box-shadow: var(--shadow-md);
+    }
+
+    /* Middle Navigation */
+    .middle-all-wrap-header nav ul {
+        display: flex;
+        gap: var(--space-lg);
+        list-style: none;
+    }
+
+    .middle-all-wrap-header nav ul li a {
+        text-decoration: none;
+        color: var(--color-text-main);
+        font-size: var(--font-size-base);
+        font-weight: var(--font-weight-medium);
+        transition: color var(--transition-fast);
+    }
+
+    .middle-all-wrap-header nav ul li a:hover {
+        color: var(--color-primary);
+    }
+
+    /* Right Section */
+    .right-all-wrap-header {
+        position: fixed;
+        top: 15px;       /* distance from top */
+        right: 50px;     /* distance from right */
+        display: flex;
+        align-items: center;
+        background-color: var(--color-light);
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: var(--border-radius-md);
+        box-shadow: var(--shadow-md);
+    }
+
+    .right-all-wrap-header nav ul {
+        display: flex;
+        gap: var(--space-md);
+        list-style: none;
+    }
+
+    .right-all-wrap-header nav ul li a {
+        display: inline-block;
+        padding: var(--space-xs) var(--space-md);
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-semibold);
+        text-decoration: none;
+        border-radius: var(--border-radius-md);
+        transition: all var(--transition-fast);
+    }
+
+/* Hide Nav button */
+    #hide {
+        background-color: var(--color-danger);
+        color: var(--color-text-inverse);
+        box-shadow: var(--shadow-sm);
+    }
+
+    #hide:hover {
+        background-color: var(--color-hover-secondary);
+        color: var(--color-light);
+    }
+
+/* Show Nav button */
+    #show {
+        background-color: var(--color-success);
+        color: var(--color-text-inverse);
+        box-shadow: var(--shadow-sm);
+    }
+
+    #show:hover {
+        background-color: var(--color-hover-primary);
+        color: var(--color-light);
+    }
+
+    /* Toggle Nav button */
+    #toggle {
+        background-color: var(--color-info);
+        color: var(--color-light);
+    }
+    #toggle:hover {
+        background-color: var(--color-hover-accent);
+        color: var(--color-light);
+    }
+
+    /* this is for effect of jquery */
+
+    .wrap-all-content-para-one {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* Overall wrapper */
+    .wrap-all-content-para-one {
+        margin: 40px auto;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .wrap-all-jquery-effect-button {
+        display: flex;
+        gap: 30px;
+        margin-top: var(--space-lg);
+    }
+
+    /* Button styling */
+    .wrap-all-jquery-effect-button button {
+        display: block;
+        width: 100%;
+        padding: 14px 20px;
+        background-color: var(--color-primary);   /* primary blue */
+        color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+        margin-bottom: 50px;
+    }
+
+    .wrap-all-jquery-effect-button button:hover {
+        background-color: var(--color-hover-primary);   /* darker blue on hover */
+        transform: translateY(-2px); /* subtle lift */
+    }
+
+    /* Panel styling */
+    .wrap-all-jquery-effect-content #panel {
+        display: none;               /* hidden by default for slideDown */
+        padding: 20px;
+        margin-top: 12px;
+        background-color: #ecf0f1;   /* light gray background */
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 15px;
+        color: #333;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+
+    /* this is for section 2 animation  */
+
+    .wrap-all-animation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .animation-buttons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .animation-shapes {
+        display: flex;
+        gap: 20px;
+    }
+
+    .shape {
+        width: 100px;
+        height: 100px;
+        position: relative;
+    }
+
+    #circle { background: var(--color-hover-primary); border-radius: 50%; }
+    #square { background: var(--color-danger);margin-right: 20px; }
+    #diamond { background: var(--color-accent); transform: rotate(45deg); }
+
+
+
+    /* Section 3 fade effect  */
+    .wrap-all-section-three {
+        margin: var(--space-lg) 0px;
+    }
+
+    .wrap-all-fade-effect {
+        background-color: var(--color-bg-section);
+        height: 300px;
+        width: 100%;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: var(--shadow-lg);
+    }
+
+    #box {
+      width: 200px;
+      height: 200px;
+      background: var(--color-danger);
+      margin: 20px auto;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    /* this is for form in section four  */
+    .wrap-all-form {
+        width: 400px;
+        margin: var(--space-lg) auto;
+        padding: var(--space-lg);
+        background: var(--color-light);
+        border: 1px solid var(--color-secondary);
+        border-radius: var(--border-radius-md);
+        box-shadow: var(--shadow-sm);
+        font-family: var(--font-family-primary);
+    }
+
+    .wrap-all-form label {
+        display: block;
+        margin-bottom: var(--space-xs);
+        font-weight: var(--font-weight-medium);
+        color: var(--color-text-main);
+        font-size: var(--font-size-base);
+    }
+
+    .wrap-all-form input[type="text"],
+    .wrap-all-form input[type="email"] {
+        width: 90%;
+        padding: var(--space-sm);
+        margin-bottom: var(--space-md);
+        border: 1px solid var(--color-secondary);
+        border-radius: var(--border-radius-sm);
+        font-size: var(--font-size-base);
+        transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .wrap-all-form input:focus {
+        border-color: var(--color-primary);
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    }
+
+    .wrap-all-form button {
+        display: block;
+        width: 50%;
+        padding: var(--space-sm);
+        background: var(--color-primary);
+        border: none;
+        border-radius: var(--border-radius-sm);
+        color: var(--color-text-inverse);
+        font-weight: var(--font-weight-semibold);
+        font-size: var(--font-size-base);
+        margin: auto;
+        cursor: pointer;
+        transition: background var(--transition-fast);
+    }
+
+    .wrap-all-form button:hover {
+        background: var(--color-hover-primary);
+    }
+
+    #error {
+        margin-top: var(--space-sm);
+        font-size: var(--font-size-small);
+        color: var(--color-danger);
+        font-weight: var(--font-weight-medium);
+    }
+
+    input.error-border {
+        border-color: var(--color-danger);
+        background: #ffe6e6;
+    }
+
+    .error {
+        color: var(--color-danger);
+        font-size: var(--font-size-small);
+        margin-top: var(--space-xs);
+        font-weight: var(--font-weight-medium);
+    }
+
+    /* this is for section 5 image hover effect  */
+
+    .wrap-all-image-hover-effect {
+        display: flex;
+        justify-content: center;
+        padding: 20px 50px;
+        margin: 50px;
+        background-color: var(--color-bg-section);
+        box-shadow: var(--shadow-lg);
+    }
+
+    #hoverImage {
+        transition: opacity 0.3s ease;
+    }
+
+
+

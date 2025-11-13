@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery All-in-One Demo</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <style>
+    body { font-family: Arial, sans-serif; margin:20px; }
+    .highlight { background: yellow; }
+    .box { width:100px; height:100px; background:lightblue; margin:10px; }
+    .hidden { display:none; }
+    .gallery img { width:150px; height:100px; }
+    #nav ul { list-style:none; padding:0; }
+    #nav li { display:inline-block; margin:0 10px; cursor:pointer; }
+  </style>
+</head>
+<body>
+
+<h1>jQuery Dashboard Demo</h1>
+
+<!-- Navigation -->
+<div id="nav">
+  <button id="toggleNav">Toggle Nav</button>
+  <ul class="menu">
+    <li class="item">Home</li>
+    <li class="item">About</li>
+    <li class="item">Contact</li>
+  </ul>
+</div>
+
+<!-- Form -->
+<form id="userForm">
+  <input type="text" name="username" placeholder="Enter name">
+  <input type="email" name="email" placeholder="Enter email">
+  <button type="submit">Submit</button>
+</form>
+
+<!-- Table -->
+<div id="tableSection">
+  <button id="addRow">Add Row</button>
+  <table id="dataTable" border="1">
+    <tr><th>Name</th><th>Email</th></tr>
+  </table>
+</div>
+
+<!-- Gallery -->
+<div class="gallery">
+  <div><img src="https://placekitten.com/200/100"></div>
+  <div><img src="https://placekitten.com/201/100"></div>
+  <div><img src="https://placekitten.com/202/100"></div>
+</div>
+
+<!-- AJAX -->
+<div id="ajaxSection">
+  <button id="loadData">Load Data</button>
+  <div id="result"></div>
+</div>
+
+<!-- Effects -->
+<div id="effects">
+  <button id="fadeBtn">Fade Box</button>
+  <button id="slideBtn">Slide Box</button>
+  <button id="animateBtn">Animate Box</button>
+  <div class="box"></div>
+</div>
+
+<script>
+$(document).ready(function(){
+
+  // Selectors & CSS
+  $("h1").css("color","blue");
+  $(".item:first").addClass("highlight");
+
+  // Navigation toggle
+  $("#toggleNav").click(function(){
+    $(".menu").slideToggle();
+  });
+
+  // Form handling
+  $("#userForm").submit(function(e){
+    e.preventDefault();
+    let data = $(this).serializeArray();
+    $("#dataTable").append("<tr><td>"+data[0].value+"</td><td>"+data[1].value+"</td></tr>");
+  });
+
+  // Add row
+  $("#addRow").click(function(){
+    $("#dataTable").append("<tr><td>New</td><td>Row</td></tr>");
+  });
+
+  // AJAX demo
+  $("#loadData").click(function(){
+    $.ajax({
+      url: "https://jsonplaceholder.typicode.com/users/1",
+      method: "GET",
+      success: function(response){
+        $("#result").html("Name: "+response.name+"<br>Email: "+response.email);
+      }
+    });
+  });
+
+  // Gallery plugin
+  $(".gallery").slick();
+
+  // Traversing demo
+  $(".item").hover(function(){
+    $(this).siblings().css("color","red");
+  }, function(){
+    $(this).siblings().css("color","");
+  });
+
+  // Effects
+  $("#fadeBtn").click(function(){
+    $(".box").fadeToggle();
+  });
+  $("#slideBtn").click(function(){
+    $(".box").slideToggle();
+  });
+  $("#animateBtn").click(function(){
+    $(".box").animate({width:"200px",height:"200px"},1000).animate({width:"100px",height:"100px"},1000);
+  });
+
+  // Attribute manipulation
+  $("input[name='username']").attr("title","Enter your full name");
+  $("input[name='email']").prop("required",true);
+
+  // Utilities
+  let arr = [1,2,3,4,5];
+  $.each(arr,function(i,val){
+    console.log("Value: "+val);
+  });
+  console.log($.inArray(3,arr)); // index of 3
+  console.log($.isNumeric("123")); // true
+
+});
+</script>
+</body>
+</html>

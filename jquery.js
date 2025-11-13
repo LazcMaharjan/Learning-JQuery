@@ -1,8 +1,8 @@
 
     $(document).ready(function(){
         $("#move").click(function(){
-            $("p").css("position","relative")
-                .animate({left:'200px', backgroundColor:'#000'}, 1000);
+            $("p")
+                .animate({left:'200px', backgroundColor:'#000'}, 3000);
         });
 
         $("#ani").click(function(){
@@ -27,4 +27,24 @@
         $(".combine").click(function(){
             $("#p1").css("color", "red").slideUp(2000).slideDown(2000);
         });
+
+
+         $("#btn-appended-mtd-text").click(function(){
+            $("p").append(" <b>Appended text</b>.");
+        });
+
+        $("#btn-appended-mtd-oli").click(function(){
+            $("ol").append("<li>Appended item</li>");
+        });
+
+        // ============= Add ====================
+
+        //  $("#btn-appended-mtd-text").click(function(){
+        //     $("p").prepend(" <b>Appended text</b>.");
+        // });
+
+        // $("#btn-appended-mtd-oli").click(function(){
+        //     $("ol").prepend("<li>Appended item</li>");
+        // });
+
     });
